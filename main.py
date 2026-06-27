@@ -1,19 +1,11 @@
-import os
-from langchain_openai import ChatOpenAI   
-from dotenv import load_dotenv
+import streamlit as st
+from langchain_helper import generate_pet_name
+st.title("Pet Name Generator")
 
-load_dotenv()
+animal_type = st.sidebar.selectbox("what is your pert?", ("Dog","Cat", "Cow", "Bird", "Hamster"))
 
-def generate_pet_name():
-    llm = ChatOpenAI(
-        model="gpt-4o",
-        api_key=os.environ.get("GITHUB_TOKEN"),
-        base_url="https://models.inference.ai.azure.com"
-    )
+pet_color = st.sidebar.text_area(label = f"what is the color of your {animal_type}")
 
-    name = llm.invoke("I have a dog and i want a cool name for it. Suggest me five cool names for my dog.")
-
-    return name.content
-
-print(generate_pet_name())
-    
+if(pet_color):
+    response = generate_pet_name(animal_type, pet_color)
+    st.text(response["pet_name"])
