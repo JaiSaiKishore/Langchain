@@ -22,6 +22,7 @@ from langchain_community.vectorstores import FAISS #stores vectors in vectordb, 
 from langchain_core.prompts import ChatPromptTemplate #reusable prompts
 from langchain_core.output_parsers import StrOutputParser #model output to desired format
 from dotenv import load_dotenv
+load_dotenv()
 # --------------------------------------------------------------
 # 1. Set api key
 # --------------------------------------------------------------
@@ -72,9 +73,10 @@ retriever = vectorstore.as_retriever(search_kwargs={"k": 3}) #search_kwargs-> nu
 # --------------------------------------------------------------
 
 llm = ChatOpenAI(
-    model = "gpt-4o",
+    model = os.getenv("MODEL"),
     temperature = 0.7,
-    base_url = "https://models.inference.ai.azure.com"
+    base_url = "https://models.inference.ai.azure.com",
+    api_key = os.getenv("OPENAI_API_KEY")
 )
 
 # --------------------------------------------------------------
@@ -123,4 +125,3 @@ while True:
     print("\n Answer")
     print(response)
     print("\n"+"-"*60+"\n")
- 
