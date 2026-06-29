@@ -1,0 +1,5 @@
+Artificial Intelligence (AI) is one of the most significant technological advancements of the modern era.
+It enables machines to simulate human intelligence by performing tasks such as learning, reasoning, problem-solving, language understanding, and decision-making. AI has become an essential part of many industries,
+including healthcare, education, finance, manufacturing, transportation, and entertainment. In healthcare, AI assists doctors in diagnosing diseases, analyzing medical images,
+and recommending treatment plans. In the financial sector, AI is used to detect fraudulent transactions, assess credit risk, and automate customer support.
+Educational platforms use AI to personalize learning experiences by adapting content to the needs of individual students.
